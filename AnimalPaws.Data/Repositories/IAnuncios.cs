@@ -10,5 +10,6 @@ namespace AnimalPaws.Data.Repositories
     public interface IAnuncios
     {
         Task<IEnumerable<Anuncios>> GetAnuncios();
+        Task<bool> insertAnuncios(Anuncios anuncios);
     }
 }

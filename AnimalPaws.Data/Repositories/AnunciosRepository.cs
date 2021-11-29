@@ -29,5 +29,18 @@ namespace AnimalPaws.Data.Repositories
                         FROM anuncios";
             return await db.QueryAsync<Anuncios>(sql, new { });
         }
+
+        public async Task<bool> insertAnuncios(Anuncios anuncios)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                         INSERT INTO anuncios (titulo, descripcion, imagen)
+                         VALUES (@titulo, @descripcion, @imagen)";
+            var result = await db.ExecuteAsync(sql, new { anuncios.titulo, anuncios.descripcion, anuncios.imagen});
+
+            return result > 0;
+
+        }
     }
 }
