@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "77d0082e-a423-4871-b555-0de1c2e50bd2": {
+      "ProjectGuid": "77d0082e-a423-4871-b555-0de1c2e50bd2",
+      "DisplayName": "AnimalPaws.Model",
+      "ColorIndex": 0
+    },
+    "9e6b7321-32b8-4bce-b0c6-89fb5015ba45": {
+      "ProjectGuid": "9e6b7321-32b8-4bce-b0c6-89fb5015ba45",
+      "DisplayName": "AnimalPawsAnnouncement",
+      "ColorIndex": 1
+    },
+    "137a9785-52ce-45e2-a0a6-9e20125df2b2": {
+      "ProjectGuid": "137a9785-52ce-45e2-a0a6-9e20125df2b2",
+      "DisplayName": "AnimalPaws.Data",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
