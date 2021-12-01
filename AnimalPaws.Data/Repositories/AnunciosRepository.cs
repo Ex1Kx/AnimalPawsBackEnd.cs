@@ -42,5 +42,28 @@ namespace AnimalPaws.Data.Repositories
             return result > 0;
 
         }
+
+        public async Task<bool> updateAnuncios(Anuncios anuncios)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        UPDATE anuncios
+                        SET titulo=@titulo, descripcion=@descripcion, imagen=@imagen
+                        WHERE id_anuncios = @id_anuncios";
+            var result = await db.ExecuteAsync(sql, new { anuncios.id_anuncios,anuncios.titulo, anuncios.descripcion, anuncios.imagen});
+            return result > 0;
+        }
+
+        public async Task<bool> DeleteAnuncios(Anuncios anuncios)
+        {
+            var db = dbConnection();
+            var sql = @"
+                        DELETE
+                        FROM anuncios
+                        WHERE id_anuncios = @id_anuncios";
+            var result = await db.ExecuteAsync(sql, new { id_anuncios = anuncios.id_anuncios });
+            return result > 0;
+        }
     }
 }

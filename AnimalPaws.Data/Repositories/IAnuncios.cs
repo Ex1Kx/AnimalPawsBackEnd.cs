@@ -11,5 +11,7 @@ namespace AnimalPaws.Data.Repositories
     {
         Task<IEnumerable<Anuncios>> GetAnuncios();
         Task<bool> insertAnuncios(Anuncios anuncios);
+        Task<bool> updateAnuncios(Anuncios anuncios);
+        Task<bool> DeleteAnuncios(Anuncios anuncios);
     }
 }
