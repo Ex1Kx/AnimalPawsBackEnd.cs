@@ -8,6 +8,7 @@ namespace AnimalPaws.Model
 {
     public class Anuncios
     {
+        //Model DataBase
         public int id_anuncios { get; set; }
         public string titulo { get; set; }
         public string descripcion { get; set; }
