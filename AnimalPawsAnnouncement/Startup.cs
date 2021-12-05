@@ -32,6 +32,7 @@ namespace AnimalPawsAnnouncement
             services.AddSingleton(mySQLConnectionConfig);
 
             services.AddScoped<IAnuncios, AnunciosRepository>();
+            services.AddScoped<IUsuarios, UsuariosRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

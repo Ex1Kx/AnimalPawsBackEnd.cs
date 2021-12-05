@@ -6,5 +6,10 @@ titulo varchar(45),
 descripcion text,
 imagen text
 );
-insert into anuncios (titulo, descripcion, imagen)
-values('Prueba1', 'Una Pequeña Prueba Namas UwU', 'https://i.imgur.com/EtlPQKC.jpeg');
+create table usuarios(
+id_usuarios int auto_increment primary key,
+nombres varchar(80),
+email varchar(80),
+password varchar(80),
+icon text
+);
