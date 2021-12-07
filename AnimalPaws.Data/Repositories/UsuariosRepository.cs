@@ -25,7 +25,7 @@ namespace AnimalPaws.Data.Repositories
         {
             var db = dbConnection();
             var sql = @"
-                        SELECT id_usuarios, nombres, email, password, icon
+                        SELECT id_usuarios, nombres, email, password, icon, rol
                         FROM usuarios";
             return await db.QueryAsync<Usuarios>(sql, new { });
         }
@@ -35,10 +35,33 @@ namespace AnimalPaws.Data.Repositories
             var db = dbConnection();
 
             var sql = @"
-                         INSERT INTO usuarios (nombres, email, password, icon)
-                         VALUES (@nombres, @email, @password, @icon)";
-            var result = await db.ExecuteAsync(sql, new { usuarios.nombres, usuarios.email, usuarios.password, usuarios.icon });
+                         INSERT INTO usuarios (nombres, email, password, icon, rol)
+                         VALUES (@nombres, @email, @password, @icon, @rol)";
+            var result = await db.ExecuteAsync(sql, new { usuarios.nombres, usuarios.email, usuarios.password, usuarios.icon, usuarios.rol });
 
+            return result > 0;
+        }
+
+        public async Task<bool> updateUsuarios(Usuarios usuarios)
+        {
+            var db = dbConnection();
+
+            var sql = @"
+                        UPDATE usuarios
+                        SET nombres=@nombres, email=@email, password=@password, icon=@icon, rol=@rol
+                        WHERE id_usuarios = @id_usuarios";
+            var result = await db.ExecuteAsync(sql, new { usuarios.nombres, usuarios.email, usuarios.password, usuarios.icon, usuarios.id_usuarios });
+            return result > 0;
+        }
+
+        public async Task<bool> deleteUsuarios(Usuarios usuarios)
+        {
+            var db = dbConnection();
+            var sql = @"
+                        DELETE
+                        FROM usuarios
+                        WHERE id_usuarios = @id_usuarios";
+            var result = await db.ExecuteAsync(sql, new { id_usuarios = usuarios.id_usuarios });
             return result > 0;
         }
     }

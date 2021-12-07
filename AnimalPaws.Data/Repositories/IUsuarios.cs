@@ -10,6 +10,8 @@ namespace AnimalPaws.Data.Repositories
     public interface IUsuarios
     {
         Task<IEnumerable<Usuarios>> GetUsuarios();
-        Task<bool> insertUsuarios(Usuarios usuarios);  
+        Task<bool> insertUsuarios(Usuarios usuarios);
+        Task<bool> updateUsuarios(Usuarios usuarios);
+        Task<bool> deleteUsuarios(Usuarios usuarios);
     }
 }
